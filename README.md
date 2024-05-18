@@ -1,19 +1,19 @@
-# laba_weather
+# Сайт погода
 
-This template should help get you started developing with Vue 3 in Vite.
+Сайт погоды, основанный на моей API. Позволяет получать текущую погоду в городе и погоду на пять дней вперед, сохранять эту погоду в базу, добавлять/изменять/удалять пользователей/погоду/города (через пользователя admin), сохранять города в список Избранных пользователей.
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
 
 ## Project Setup
 
 ```sh
 npm install
+```
+
+```sh
+npm i v-click-outside
 ```
 
 ### Compile and Hot-Reload for Development

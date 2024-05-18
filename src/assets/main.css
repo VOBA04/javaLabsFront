@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lobster&display=swap');
+
+body{
+    background:lightcyan;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 5em;
+    color: #fdbb2d;
+}
+
+p{
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+    font-size: 1.5em;
+}
+
+.buttonDelete {
+    background: red;
+    border-color: rgb(233, 8, 8);
+    color: white;
+    font-size: 14px;
+}
+
+.buttonChange,
+.buttonGet {
+    background: rgb(255, 180, 40);
+    border-color: darkorange;
+    color: white;
+    font-size: 14px;
+}

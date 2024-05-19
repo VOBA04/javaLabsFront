@@ -112,6 +112,8 @@ export default {
             axios.get(`http://localhost:8080/api/v1/weather/db/curr?city=${this.cityName}`)
                 .then(() => {
                     this.good1 = true
+                    this.getCities()
+                    this.getWeathers()
                     setTimeout(() => {
                         this.good1 = false
                     }, 3000)
@@ -121,6 +123,8 @@ export default {
             axios.get(`http://localhost:8080/api/v1/weather/db/days?city=${this.cityName}`)
                 .then(() => {
                     this.good5 = true
+                    this.getCities()
+                    this.getWeathers()
                     setTimeout(() => {
                         this.good5 = false
                     }, 3000)

@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         getWeather() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v2/city/weather/sorted/${this.city.id}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v2/city/weather/sorted/${this.city.id}`)
                 .then(res => {
                     this.weather = res.data.weather
                     this.weatherWindow = true

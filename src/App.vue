@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         getWeather() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v1/weather/curr?city=${this.cityName}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v1/weather/curr?city=${this.cityName}`)
                 .then((res) => {
                     this.weather = res.data
                 })
@@ -48,17 +48,17 @@ export default {
                         this.errorGet = null
                     }, 3000)
                 })
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v1/weather/days?city=${this.cityName}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v1/weather/days?city=${this.cityName}`)
                 .then((res) => { this.fiveDaysWeather = res.data })
         },
         getWeathers() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v2/weather/all/sorted`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v2/weather/all/sorted`)
                 .then((res) => {
                     this.weathers = res.data
                 })
         },
         addWeather() {
-            axios.post(`${process.env.VUE_APP_API_URL}/api/v2/weather/`, {
+            axios.post(import.meta.env.VITE_API_URL + `/api/v2/weather/`, {
                 "temp": this.temp,
                 "pressure": this.pressure,
                 "humidity": this.humidity,
@@ -90,13 +90,13 @@ export default {
                 })
         },
         deleteWeather(index, id) {
-            axios.delete(`${process.env.VUE_APP_API_URL}/api/v2/weather/${id}`)
+            axios.delete(import.meta.env.VITE_API_URL + `/api/v2/weather/${id}`)
                 .then(() => {
                     this.weathers.splice(index, 1)
                 })
         },
         changeWeather(index, id, weather) {
-            axios.put(`${process.env.VUE_APP_API_URL}/api/v2/weather/${id}`, weather)
+            axios.put(import.meta.env.VITE_API_URL + `/api/v2/weather/${id}`, weather)
                 .then((res) => {
                     this.weathers[index] = res.data
                     this.goodChange = true
@@ -109,7 +109,7 @@ export default {
                 })
         },
         saveWeather() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v1/weather/db/curr?city=${this.cityName}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v1/weather/db/curr?city=${this.cityName}`)
                 .then(() => {
                     this.good1 = true
                     this.getCities()
@@ -120,7 +120,7 @@ export default {
                 })
         },
         saveFiveDaysWeather() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v1/weather/db/days?city=${this.cityName}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v1/weather/db/days?city=${this.cityName}`)
                 .then(() => {
                     this.good5 = true
                     this.getCities()
@@ -131,13 +131,13 @@ export default {
                 })
         },
         getUsers() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v2/user/all`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v2/user/all`)
                 .then((res) => {
                     this.users = res.data
                 })
         },
         addUser() {
-            axios.post(`${process.env.VUE_APP_API_URL}/api/v2/user/`, { "name": this.userName })
+            axios.post(import.meta.env.VITE_API_URL + `/api/v2/user/`, { "name": this.userName })
                 .then((res) => {
                     this.users.push(res.data)
                     this.goodAdd = true
@@ -152,13 +152,13 @@ export default {
             this.userName = ""
         },
         deleteUser(index, id) {
-            axios.delete(`${process.env.VUE_APP_API_URL}/api/v2/user/${id}`)
+            axios.delete(import.meta.env.VITE_API_URL + `/api/v2/user/${id}`)
                 .then(() => {
                     this.users.splice(index, 1)
                 })
         },
         changeUser(index, id, newName) {
-            axios.put(`${process.env.VUE_APP_API_URL}/api/v2/user/${id}`, { "name": newName })
+            axios.put(import.meta.env.VITE_API_URL + `/api/v2/user/${id}`, { "name": newName })
                 .then(res => {
                     this.users[index] = res.data
                     this.goodChange = true
@@ -170,19 +170,19 @@ export default {
                 })
         },
         getCities() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v2/city/all/sorted`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v2/city/all/sorted`)
                 .then((res) => {
                     this.cities = res.data
                 })
         },
         deleteCity(index, id) {
-            axios.delete(`${process.env.VUE_APP_API_URL}/api/v2/city/${id}`)
+            axios.delete(import.meta.env.VITE_API_URL + `/api/v2/city/${id}`)
                 .then(() => {
                     this.cities.splice(index, 1)
                 })
         },
         changeCity(index, id, newName) {
-            axios.put(`${process.env.VUE_APP_API_URL}/api/v2/city/${id}`, { "cityName": newName })
+            axios.put(import.meta.env.VITE_API_URL + `/api/v2/city/${id}`, { "cityName": newName })
                 .then(res => {
                     this.cities[index] = res.data
                     this.goodChange = true
@@ -194,7 +194,7 @@ export default {
                 })
         },
         addCity() {
-            axios.post(`${process.env.VUE_APP_API_URL}/api/v2/city/`, { "cityName": this.cityName })
+            axios.post(import.meta.env.VITE_API_URL + `/api/v2/city/`, { "cityName": this.cityName })
                 .then(res => {
                     this.cities.push(res.data)
                     this.goodAdd = true
@@ -209,9 +209,9 @@ export default {
             this.cityName = ''
         },
         addCityToFavorites() {
-            axios.post(`${process.env.VUE_APP_API_URL}/api/v2/city/`, { "cityName": this.cityName })
+            axios.post(import.meta.env.VITE_API_URL + `/api/v2/city/`, { "cityName": this.cityName })
                 .then(cityRes => {
-                    axios.post(`${process.env.VUE_APP_API_URL}/api/v2/user/add_city?user_id=${this.selectedUser}&city_id=${cityRes.data.id}`)
+                    axios.post(import.meta.env.VITE_API_URL + `/api/v2/user/add_city?user_id=${this.selectedUser}&city_id=${cityRes.data.id}`)
                         .then(() => {
                             this.getCities()
                             this.getUserCities()
@@ -223,13 +223,13 @@ export default {
                 })
         },
         getUserCities() {
-            axios.get(`${process.env.VUE_APP_API_URL}/api/v2/user/${this.selectedUser}`)
+            axios.get(import.meta.env.VITE_API_URL + `/api/v2/user/${this.selectedUser}`)
                 .then(res => {
                     this.userCities = res.data.cities
                 })
         }
     },
-    created() {
+    mounted() {
         this.getUsers()
         this.getWeathers()
         this.getCities()

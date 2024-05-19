@@ -256,7 +256,6 @@ export default {
 
 <template>
     <h1>Погода</h1>
-
     <div class="box">
         <input v-show="this.selectedUser != 'admin'" type="text" v-model="cityName" @keyup.enter="getWeather()"
             placeholder="Введите город">

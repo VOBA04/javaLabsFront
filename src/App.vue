@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         getWeather() {
-            axios.get(`${process.env.process.env.API_URL}/api/v1/weather/curr?city=${this.cityName}`)
+            axios.get(`${process.env.API_URL}/api/v1/weather/curr?city=${this.cityName}`)
                 .then((res) => {
                     this.weather = res.data
                 })
@@ -52,13 +52,13 @@ export default {
                 .then((res) => { this.fiveDaysWeather = res.data })
         },
         getWeathers() {
-            axios.get("${process.env.API_URL}/api/v2/weather/all/sorted")
+            axios.get(`${process.env.API_URL}/api/v2/weather/all/sorted`)
                 .then((res) => {
                     this.weathers = res.data
                 })
         },
         addWeather() {
-            axios.post("${process.env.API_URL}/api/v2/weather/", {
+            axios.post(`${process.env.API_URL}/api/v2/weather/`, {
                 "temp": this.temp,
                 "pressure": this.pressure,
                 "humidity": this.humidity,
@@ -131,13 +131,13 @@ export default {
                 })
         },
         getUsers() {
-            axios.get("${process.env.API_URL}/api/v2/user/all")
+            axios.get(`${process.env.API_URL}/api/v2/user/all`)
                 .then((res) => {
                     this.users = res.data
                 })
         },
         addUser() {
-            axios.post("${process.env.API_URL}/api/v2/user/", { "name": this.userName })
+            axios.post(`${process.env.API_URL}/api/v2/user/`, { "name": this.userName })
                 .then((res) => {
                     this.users.push(res.data)
                     this.goodAdd = true
@@ -170,7 +170,7 @@ export default {
                 })
         },
         getCities() {
-            axios.get("${process.env.API_URL}/api/v2/city/all/sorted")
+            axios.get(`${process.env.API_URL}/api/v2/city/all/sorted`)
                 .then((res) => {
                     this.cities = res.data
                 })
@@ -194,7 +194,7 @@ export default {
                 })
         },
         addCity() {
-            axios.post('${process.env.API_URL}/api/v2/city/', { "cityName": this.cityName })
+            axios.post(`${process.env.API_URL}/api/v2/city/`, { "cityName": this.cityName })
                 .then(res => {
                     this.cities.push(res.data)
                     this.goodAdd = true
@@ -209,7 +209,7 @@ export default {
             this.cityName = ''
         },
         addCityToFavorites() {
-            axios.post('${process.env.API_URL}/api/v2/city/', { "cityName": this.cityName })
+            axios.post(`${process.env.API_URL}/api/v2/city/`, { "cityName": this.cityName })
                 .then(cityRes => {
                     axios.post(`${process.env.API_URL}/api/v2/user/add_city?user_id=${this.selectedUser}&city_id=${cityRes.data.id}`)
                         .then(() => {

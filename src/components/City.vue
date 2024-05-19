@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         getWeather() {
-            axios.get(`${API_URL}/api/v2/city/weather/sorted/${this.city.id}`)
+            axios.get(`${process.env.API_URL}/api/v2/city/weather/sorted/${this.city.id}`)
                 .then(res => {
                     this.weather = res.data.weather
                     this.weatherWindow = true

@@ -38,3 +38,11 @@ p{
     color: white;
     font-size: 14px;
 }
+
+select{
+    background: rgb(255, 180, 40);
+    border-color: darkorange;
+    color: white;
+    font-size: 14px;
+    height: 30px;
+}
